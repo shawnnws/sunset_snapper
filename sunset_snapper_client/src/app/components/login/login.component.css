@@ -1,0 +1,48 @@
+body {
+    background-color:rgb(33, 97, 120);
+}
+
+.header {
+    width: 100%;
+}
+
+.brand {
+    font-family: bradley hand;
+    /* color: rgb(219, 221, 227); */
+    color: rgb(239, 134, 73);
+    font-size: 100px;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+}
+
+.login-header {
+    font-family: bradley hand;
+    /* color: rgb(219, 221, 227); */
+    color: rgb(239, 134, 73);
+    font-size: 75px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.login-body {
+    width: 40%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(239, 134, 73);
+    color: rgb(239, 134, 73);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+
+.login-text {
+    text-align: center;
+}
+
+.login-button {
+    text-align: center;
+}

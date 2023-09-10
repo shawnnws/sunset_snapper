@@ -1,0 +1,110 @@
+<body>
+    <table class="header">
+        <tr>
+            <td class="brand">SunsetSnapper</td>
+        </tr>
+        <tr>
+            <td class="upload-header">Share Your Sunset</td>
+        </tr>
+    </table>
+
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+    <table class="upload-body">
+        <tr>
+            <td>
+                <label for="photo-input">Photo: </label>
+            </td>
+            <td class="input-cell">
+                <div class="file-input-container">
+                    <input id="selectedPhotoInput" type="text" [value]="myForm.value.photo?.name || ''" readonly>
+                    <button class="photo-upload-button">
+                        <label>
+                            Upload Photo
+                            <input id="photo-input" type="file" (change)="photoUpload($event)" accept="image/*" style="display: none;">
+                        </label>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="error-cell">
+                <div *ngIf="invalidFormInput('photo') && myForm.controls['photo'].touched" class="error-message">
+                  Photo is required!
+                </div>
+              </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td *ngIf="apiLoaded | async">
+                <google-map 
+                    height="400px"
+                    width="750px"
+                    [center]="center"
+                    [zoom]="zoom"
+                    (mapClick)="updateMarker($event)">
+                    <map-marker *ngIf="markerPosition !== null"
+                        [position]="markerPosition"
+                        [options]="markerOptions">
+                    </map-marker>
+                </google-map>
+            
+                <p *ngIf="stringMarkerPosition !== null">Marker Position: {{ stringMarkerPosition }}</p>
+                <p *ngElse>No marker selected</p>
+            
+                <!-- <p *ngIf="stringCityCountry !== null">Parsed City, Country, Neighbourhood: {{ stringCityCountry }}</p>
+                <p *ngIf="stringCityCountry === null">No response obtained from geocoding</p> -->
+                <p *ngIf="cityCountry !== null" formControlName="country">Country: {{cityCountry.country}}</p>
+                <p *ngIf="cityCountry !== null" formControlName="city">City: {{cityCountry.city}}</p>
+            </td>
+        </tr>
+
+        <!-- <tr>
+            <td>
+                <label for="country-input">Country: </label>
+            </td>
+            <td class="input-cell">
+                <input id="country-input" formControlName="country" placeholder="Enter country" required>
+            </td>
+        </tr>
+        <tr>
+            <td class="error-cell">
+                <div *ngIf="invalidFormInput('country') && myForm.controls['country'].touched" class="error-message">
+                  Country is required!
+                </div>
+              </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="city-input">City: </label>
+            </td>
+            <td class="input-cell">
+                <input id="city-input" formControlName="city" placeholder="Enter city" required>
+            </td>
+        </tr>
+        <tr>
+            <td class="error-cell">
+                <div *ngIf="invalidFormInput('city') && myForm.controls['city'].touched" class="error-message">
+                  City is required!
+                </div>
+              </td>
+        </tr> -->
+
+        <tr>
+            <td>
+                <label for="details-input">Details: </label>
+            </td>
+            <td class="input-cell">
+                <textarea id="details-input" formControlName="details" placeholder="Share exact location details or street name!"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="submit" [disabled]="!myForm.valid">Submit</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>

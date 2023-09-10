@@ -1,0 +1,72 @@
+body {
+    background-color:rgb(33, 97, 120);
+}
+
+.header {
+    width: 100%;
+}
+
+.brand {
+    font-family: bradley hand;
+    /* color: rgb(219, 221, 227); */
+    color: rgb(239, 134, 73);
+    font-size: 100px;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+}
+
+.login-button {
+    float: right;
+    height: 35px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.post {
+    width: 100%;
+    text-align: center;
+}
+
+.post-button {
+    height: 75px;
+    width: 250px;
+    font-family: bradley hand;
+    font-size: 30px;
+}
+
+.browse-text {
+    font-size: 20px;
+}
+
+.search-button {
+    height: 25px;
+    width: 100px;
+    margin-left: 10px;
+}
+
+.text-input {
+    height: 20px;
+    width: 300px;
+}
+
+.homepage-city {
+    width: 100vw;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    margin-top: 5px;
+}
+
+.country {
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+    text-align: center;
+    font-family: bradley hand;
+    font-size: 50px;
+    /* color: rgb(219, 221, 227); */
+    color: rgb(239, 134, 73);
+    padding: 50px;
+    width: 50%;
+}

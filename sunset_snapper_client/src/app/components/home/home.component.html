@@ -1,0 +1,40 @@
+<body>
+
+<table class="header">
+
+    <tr>
+        <td class="brand">SunsetSnapper</td>
+    </tr>
+
+    <tr>
+        <td class="login">
+            <button class="login-button" type="submit" [routerLink]="['/login']">Login/Logout</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="post">
+            <button class="post-button" type="submit" [routerLink]="['/upload']">Post Something!</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="browse-text">
+            <label for="city-input">Browse by City: </label>
+            <input class="text-input" id="cityInput" type="text" formControlName="city" placeholder="Enter city" required>
+        </td>
+    </tr>
+
+</table>
+
+
+<table class="homepage-city">
+    <ng-container *ngFor="let country of countries; let i = index">
+        <tr *ngIf="i % 2 == 0">
+            <td class="country"> {{countries[i] }} </td>
+            <td class="country" *ngIf="i + 1 < countries.length"> {{ countries[i+1] }}</td>
+        </tr>
+    </ng-container>
+</table>
+
+</body>
