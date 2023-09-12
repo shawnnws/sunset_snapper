@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { uploadPhotoS3 } from 'src/app/service/upload.service';
+import { uploadPhoto } from 'src/app/service/upload.service';
 import { Observable, catchError, map, of } from 'rxjs';
 import { GeoCodingResponse, CityCountry, geocode } from 'src/app/service/geocoding.service';
 import { GOOGLE_MAPS_API_KEY } from 'src/environment-variables';
@@ -15,6 +15,8 @@ import { GOOGLE_MAPS_API_KEY } from 'src/environment-variables';
 export class UploadComponent implements OnInit {
 
   username: string = 'Shawn';
+  country!: string
+  city!: string
 
   myForm!: FormGroup;
 
@@ -33,8 +35,8 @@ export class UploadComponent implements OnInit {
   private createForm() {
     this.myForm = this.fb.group({
       photo: ['', Validators.required],
-      country: ['', Validators.required],
-      city: ['', Validators.required],
+      country: [''],
+      city: [''],
       details: [null]
     })
   }
@@ -55,11 +57,11 @@ export class UploadComponent implements OnInit {
       const formData = new FormData()
       formData.append('username', this.username);
       formData.append('photo', this.myForm.value.photo);
-      formData.append('country', this.myForm.value.country);
-      formData.append('city', this.myForm.value.city);
+      formData.append('country', this.country);
+      formData.append('city', this. city);
       formData.append('details', this.myForm.value.details);
 
-      uploadPhotoS3(this.httpClient, formData).subscribe(
+      uploadPhoto(this.httpClient, formData).subscribe(
         (response) => {
           console.log('Form submitted successfully...', response);
           alert(JSON.stringify(response))
@@ -161,6 +163,9 @@ export class UploadComponent implements OnInit {
           this.stringGeocodingResponse = JSON.stringify(result);
           this.cityCountry = this.chooseCityCountry(this.findCityCountry(result));
           this.stringCityCountry = JSON.stringify(this.cityCountry);
+          // Extract country and city
+          this.country = this.cityCountry.country
+          this.city = this.cityCountry.city
         },
         (error) => {
           console.error("Geocoding error:", error);

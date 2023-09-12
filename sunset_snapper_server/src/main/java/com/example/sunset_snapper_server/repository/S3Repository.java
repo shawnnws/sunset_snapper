@@ -14,7 +14,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-// import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.PutObjectResult;
 
 @Repository
 public class S3Repository {
@@ -30,7 +30,8 @@ public class S3Repository {
     public String upload(MultipartFile imageFile) throws IOException {
         
         try (InputStream is = new ByteArrayInputStream(imageFile.getBytes())) {
-            String fileName = imageFile.getName();
+            String fileName = imageFile.getOriginalFilename();
+            System.out.println("Filename: " + fileName);
             String contentType = getContentType(fileName);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];
@@ -46,9 +47,10 @@ public class S3Repository {
 
             PutObjectRequest putReq = new PutObjectRequest(bucketName, fileName, inputStream, metadata);
             putReq = putReq.withCannedAcl(CannedAccessControlList.PublicRead);
-            // PutObjectResult putObjectResult = s3.putObject(putReq);
+            PutObjectResult putObjectResult = s3.putObject(putReq);
 
             String url = s3.getUrl(bucketName, fileName).toString();
+            System.out.println("Successful upload with url: " + url);
             return url;
         }
     }
@@ -60,6 +62,7 @@ public class S3Repository {
             case "png":
                 return "image/png";
             case "jpg":
+                return "image/jpg";
             case "jpeg":
                 return "image/jpeg";
             default:

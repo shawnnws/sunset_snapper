@@ -1,5 +1,5 @@
 export interface Photo {
-    id: number
+    photoId: number
     username: string
     photo: string 
     country: string 

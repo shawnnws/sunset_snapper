@@ -24,13 +24,16 @@ public class PhotoService {
     // Method to upload photo to s3 with the form data received from client.
     public String uploadPhotoS3(String username, MultipartFile photo, String country, String city, String details) throws IOException {
         String url = s3Repo.upload(photo);
+        System.out.println("Uploaded to s3...");
         Photo photoToUpload = new Photo();
         photoToUpload.setUsername(username);
         photoToUpload.setPhoto(url);
         photoToUpload.setCountry(country);
         photoToUpload.setCity(city);
         photoToUpload.setDetails(details);
-        return photoToUpload.getUsername();
+        System.out.println("Upload successful...");
+        // return photoToUpload.getUsername();
+        return photoToUpload.getPhoto();
     }
 
     // List of service methods for SQL PhotoRepo functions
@@ -39,12 +42,16 @@ public class PhotoService {
         return photoRepo.uploadPhoto(photo);
     }
 
-    public Boolean incrementLike(String photoUrl) {
-        return photoRepo.incrementLike(photoUrl);
+    public Boolean incrementLike(Integer photoId) {
+        return photoRepo.incrementLike(photoId);
     }
 
     public List<Photo> getPhotosByCountryCity(String country, String city) {
         return photoRepo.getPhotosByCountryCity(country, city);
+    }
+
+    public List<Photo> getPhotosByCity(String city) {
+        return photoRepo.getPhotosByCity(city);
     }
 
     public Boolean insertNewUser(User user) {

@@ -21,16 +21,16 @@ public class PhotoRepository {
     private final String UPLOAD_SQL = "INSERT INTO photos (username, photo, country, city, details, likes) VALUES (?, ?, ?, ?, ?, 1)";
 
     // Updating like count of photo 
-    private final String INCREMENT_LIKE_SQL = "UPDATE photos SET likes = likes + 1 WHERE photo = ?";
+    private final String INCREMENT_LIKE_SQL = "UPDATE photos SET likes = likes + 1 WHERE photo_id = ?";
 
     // Getting photos based on specific country and city
     private final String GET_PHOTOS_BY_COUNTRY_AND_CITY_SQL = "SELECT username, photo, details, likes FROM photos WHERE country = ? AND city = ?";
-
+    private final String GET_PHOTOS_BY_CITY_SQL = "SELECT photo_id, username, photo, details, likes FROM photos WHERE city = ?";
 
     // TO WORK ON: USER DATABASE
     private final String INSERT_NEW_USER_SQL = "insert into users (username, password) values (?, ?)";
 
-    private final String GET_PHOTOS_BY_USER_SQL = "SELECT photo, country, city, details, likes FROM photos where username = ?";
+    private final String GET_PHOTOS_BY_USER_SQL = "SELECT photo_id, photo, country, city, details, likes FROM photos where username = ?";
 
 
     public Boolean uploadPhoto(Photo photo) {
@@ -49,9 +49,9 @@ public class PhotoRepository {
     }
 
     // Check if argument should be photoUrl.
-    public Boolean incrementLike(String photoUrl) {
+    public Boolean incrementLike(Integer photoId) {
         int updated = 0;
-        updated = template.update(INCREMENT_LIKE_SQL, photoUrl);
+        updated = template.update(INCREMENT_LIKE_SQL, photoId);
 
         if (updated > 0)
             return true;
@@ -63,6 +63,15 @@ public class PhotoRepository {
         List<Photo> photoList = new ArrayList<Photo>();
         photoList = template.query(GET_PHOTOS_BY_COUNTRY_AND_CITY_SQL, 
             BeanPropertyRowMapper.newInstance(Photo.class), country, city);
+
+        System.out.println(photoList);
+        return photoList;
+    }
+
+    public List<Photo> getPhotosByCity(String city) {
+        List<Photo> photoList = new ArrayList<Photo>();
+        photoList = template.query(GET_PHOTOS_BY_CITY_SQL, 
+            BeanPropertyRowMapper.newInstance(Photo.class), city);
 
         System.out.println(photoList);
         return photoList;

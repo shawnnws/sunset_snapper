@@ -3,29 +3,30 @@ import { Observable } from "rxjs";
 import { BACKEND_URL } from "src/environment-variables";
 import { Photo } from "../model/photo";
 
-export function uploadPhotoS3(httpClient: HttpClient, formData: FormData): Observable<any> {
+
+export function uploadPhoto(httpClient: HttpClient, formData: FormData): Observable<any> {
   const headers = new HttpHeaders()
     .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/uploadPhotoS3`;
+  const url = `${BACKEND_URL}/uploadPhoto`;
 
   return httpClient.post(url, formData, { headers });
 }
 
-export function uploadPhotoSQL(httpClient: HttpClient, formData: FormData): Observable<any> {
+// export function uploadPhotoSQL(httpClient: HttpClient, formData: FormData): Observable<any> {
+//   const headers = new HttpHeaders()
+//     .append('Accept', 'application/json');
+//   const url = `${BACKEND_URL}/_____________`;
+
+//   return httpClient.post(url, formData, { headers });
+//   // returns boolean like our backend function?
+// }
+
+export function incrementLike(httpClient: HttpClient, photoId: number): Observable<any> {
   const headers = new HttpHeaders()
     .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/_____________`;
+  const url = `${BACKEND_URL}/incrementLike/${photoId}`;
 
-  return httpClient.post(url, formData, { headers });
-  // returns boolean like our backend function?
-}
-
-export function incrementLike(httpClient: HttpClient, photoUrl: string): Observable<any> {
-  const headers = new HttpHeaders()
-    .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/_____________/${photoUrl}`;
-
-  return httpClient.put(url, photoUrl, { headers });
+  return httpClient.post(url, photoId, { headers });
   // check!
   // put method correct since we are doing an update?
 }
@@ -37,6 +38,14 @@ export function getPhotosByCountryCity(httpClient: HttpClient, country: string, 
 
   return httpClient.get<Photo[]>(url, { headers });
   // check!
+}
+
+export function getPhotosByCity(httpClient: HttpClient, city: string): Observable<Photo[]> {
+  const headers = new HttpHeaders()
+    .append('Accept', 'application/json');
+  const url = `${BACKEND_URL}/city/${city}`;
+
+  return httpClient.get<Photo[]>(url, { headers });
 }
 
 export function insertNewUser(httpClient: HttpClient, formData: FormData): Observable<any> {
@@ -51,7 +60,7 @@ export function insertNewUser(httpClient: HttpClient, formData: FormData): Obser
 export function getPhotosByUser(httpClient: HttpClient, username: string): Observable<Photo[]> {
   const headers = new HttpHeaders()
     .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/____________/username=${username}`;
+  const url = `${BACKEND_URL}/username/${username}`;
 
   return httpClient.get<Photo[]>(url, { headers });
   // check!

@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { CountryDisplayComponent } from './components/country-display/country-display.component';
+import { UserDisplayComponent } from './components/user-display/user-display.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HomeComponent,
     LoginComponent,
     UploadComponent,
+    CountryDisplayComponent,
+    UserDisplayComponent,
   ],
   imports: [
     BrowserModule,

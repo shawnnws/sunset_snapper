@@ -1,5 +1,6 @@
 body {
-    background-color:rgb(33, 97, 120);
+    background-color:rgb(206, 163, 140);
+    height: auto;
 }
 
 .header {
@@ -9,7 +10,7 @@ body {
 .brand {
     font-family: bradley hand;
     /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
+    color: rgb(211, 90, 21);
     font-size: 100px;
     text-align: center;
     border-style: solid;
@@ -36,37 +37,45 @@ body {
 }
 
 .browse-text {
-    font-size: 20px;
+    font-size: 25px;
+    font-family: bradley hand;
+    color: rgb(211, 90, 21);
 }
 
 .search-button {
-    height: 25px;
+    height: 30px;
     width: 100px;
     margin-left: 10px;
+    font-family: bradley hand;
+    font-size: 20px;
 }
 
 .text-input {
-    height: 20px;
-    width: 300px;
+    height: 30px;
+    width: 250px;
 }
 
 .homepage-city {
     width: 100vw;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: white; */
     border-width: 5px;
     margin-top: 5px;
+    padding: 30px;
 }
 
 .country {
     border-style: solid;
-    border-color: black;
-    margin: 10px;
+    border-color: rgb(117, 33, 150);
+    border-width: 5px;
+    margin: 40px;
     text-align: center;
     font-family: bradley hand;
-    font-size: 50px;
+    font-size: 75px;
     /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
-    padding: 50px;
+    color: rgb(215, 211, 208);
+    padding: 40px;
     width: 50%;
+    background-image: url("/assets/photo-background.jpeg");
 }
+

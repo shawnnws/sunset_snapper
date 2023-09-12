@@ -1,0 +1,43 @@
+<body>
+    <table class="header">
+        <tr>
+            <td class="brand">SunsetSnapper</td>
+        </tr>
+        <tr>
+            <td class="home">
+                <button class="home-button" type="submit" [routerLink]="['/']">Home</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="user-header">{{username}}</td>
+        </tr>
+    </table>
+
+    <table class="user-photos">
+        <ng-container *ngFor="let photo of photoList; let i = index"> 
+            <tr *ngIf="i % 2 == 0">
+                <td class="photo">
+                    <p>
+                        <img src="{{ photoList[i].photo }}" width="600px">
+                    </p>
+                    <button type="click" (click)="onLikeClick(photoList[i].photoId)">Like</button> {{ photoList[i].likes }}
+                    <p>
+                        {{ username }}
+                    </p>
+                    <p> {{ photoList[i].details }} </p>
+                </td>
+                <td class="photo" *ngIf="i + 1 < photoList.length">
+                    <p>
+                        <img src="{{ photoList[i + 1].photo }}" width="600px">
+                    </p>
+                    <button type="click" (click)="onLikeClick(photoList[i + 1].photoId)">Like</button> {{ photoList[i + 1].likes }}
+                    <p>
+                        {{ username }}
+                    </p>
+                    <p> {{ photoList[i + 1].details }} </p>
+                </td>
+            </tr>
+        </ng-container>
+    </table>
+
+</body>
