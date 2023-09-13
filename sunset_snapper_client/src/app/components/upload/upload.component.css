@@ -1,5 +1,6 @@
 body {
-    background-color:rgb(33, 97, 120);
+    /* background-color:rgb(206, 163, 140); */
+    background-color: rgb(14, 48, 67);
     height: auto;
 }
 
@@ -9,12 +10,13 @@ body {
 
 .brand {
     font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
-    font-size: 100px;
+    color: rgb(239, 127, 62);
+    font-size: 80px;
     text-align: center;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: grey; */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .upload-header {
@@ -36,4 +38,11 @@ body {
     color: rgb(239, 134, 73);
     padding-top: 20px;
     padding-bottom: 50px;
+    font-family: bradley hand;
+    font-size: 25px;
+}
+
+.details-input {
+    width: 400px;
+    height: 75px;
 }

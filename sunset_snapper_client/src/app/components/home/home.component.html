@@ -5,10 +5,16 @@
     <tr>
         <td class="brand">SunsetSnapper</td>
     </tr>
-
-    <tr>
+    
+    <!-- <tr>
         <td class="login">
-            <button class="login-button" type="submit" [routerLink]="['/login']">Login/Logout</button>
+            <div *ngIf="isLoggedIn; else loginSection">
+                <p>Welcome, {{ loggedInUsername }}!</p>
+                <button class="login-button" (click)="logout()">Logout</button>
+            </div>
+            <ng-template #loginSection>
+                <button class="login-button" type="submit" [routerLink]="['/login']">Login</button>
+            </ng-template>
         </td>
     </tr>
 
@@ -24,9 +30,33 @@
             <input class="text-input" id="cityInput" type="text" [(ngModel)]="city" placeholder="Enter city" required>
             <button [routerLink]="['/city', city]" class="search-button">Search</button>
         </td>
-    </tr>
+    </tr> -->
 
 </table>
+
+<div class="layer-two">
+
+    <span class="browse-text">
+        <label for="city-input">Browse by City: </label>
+            <input class="text-input" id="cityInput" type="text" [(ngModel)]="city" placeholder="Enter city" required>
+            <button [routerLink]="['/city', city]" class="search-button">Search</button>
+    </span>
+
+    <span>
+        <button class="post-button" type="submit" [routerLink]="['/upload']">Post Something!</button>
+    </span>
+
+    <span>
+        <div *ngIf="isLoggedIn; else loginSection">
+            <p>Welcome, {{ loggedInUsername }}!</p>
+            <button class="login-button" (click)="logout()">Logout</button>
+        </div>
+        <ng-template #loginSection>
+            <button class="login-button" type="submit" [routerLink]="['/login']">Login</button>
+        </ng-template>
+    </span>
+    
+</div>
 
 
 <table class="homepage-city">

@@ -1,4 +1,4 @@
-package com.example.sunset_snapper_server;
+package com.example.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ public class AppConfig {
 	@Value("${s3.bucket.region}")
 	private String region;
     
-	@Bean
+	@Bean("amazon")
 	public AmazonS3 createS3Client() {
 
 		BasicAWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey);

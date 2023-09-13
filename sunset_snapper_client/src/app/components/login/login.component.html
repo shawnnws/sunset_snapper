@@ -3,19 +3,28 @@
         <tr>
             <td class="brand">SunsetSnapper</td>
         </tr>
+
         <tr>
             <td class="login-header">Login</td>
         </tr>
     </table>
 
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <table class="login-body">
         <tr>
             <td class="login-text">
                 <label for="username">Username: </label>
                 <input id="username" type="text" formControlName="username" placeholder="Enter Username" required>
             </td>
-
         </tr>
+        <tr>
+            <td class="error-cell">
+                <div *ngIf="invalidFormInput('username') && loginForm.controls['username'].touched" class="error-message">
+                  Username is required!
+                </div>
+              </td>
+        </tr>
+
         <tr>
             <td class="login-text">
                 <label for="password">Password: </label>
@@ -23,9 +32,22 @@
             </td>
         </tr>
         <tr>
-            <td class="login-button">
+            <td class="error-cell">
+                <div *ngIf="invalidFormInput('password') && loginForm.controls['password'].touched" class="error-message">
+                  Password is required!
+                </div>
+              </td>
+        </tr>
+
+        <tr class="button">
+            <span class="login-button">
                 <button class="login-button" type="submit">Login</button>
-            </td>
+            </span>
+            
+            <span class="home">
+                <button class="back-button" type="submit" [routerLink]="['/']">Back</button>
+            </span>
         </tr>
     </table>
+    </form>
 </body>

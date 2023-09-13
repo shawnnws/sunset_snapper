@@ -1,5 +1,6 @@
 body {
-    background-color:rgb(206, 163, 140);
+    /* background-color:rgb(206, 163, 140); */
+    background-color: rgb(14, 48, 67);
     height: auto;
 }
 
@@ -7,21 +8,27 @@ body {
     width: 100%;
 }
 
+.layer-two {
+    margin-top: 10px;
+}
+
 .brand {
     font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
-    color: rgb(211, 90, 21);
-    font-size: 100px;
+    color: rgb(239, 127, 62);
+    font-size: 80px;
     text-align: center;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: grey; */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .login-button {
     float: right;
+    font-family: bradley hand;
+    font-size: 20px;
     height: 35px;
     margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 .post {
@@ -30,16 +37,19 @@ body {
 }
 
 .post-button {
+    text-align: center;
     height: 75px;
     width: 250px;
     font-family: bradley hand;
     font-size: 30px;
+    margin-left: 60px;
 }
 
 .browse-text {
     font-size: 25px;
     font-family: bradley hand;
-    color: rgb(211, 90, 21);
+    color: rgb(239, 127, 62);
+    margin-left: 20px;
 }
 
 .search-button {
@@ -66,14 +76,16 @@ body {
 
 .country {
     border-style: solid;
-    border-color: rgb(117, 33, 150);
+    /* border-color: rgb(117, 33, 150); */
+    border-color: rgb(51, 83, 119);
     border-width: 5px;
     margin: 40px;
     text-align: center;
     font-family: bradley hand;
     font-size: 75px;
     /* color: rgb(219, 221, 227); */
-    color: rgb(215, 211, 208);
+    color: rgb(216, 127, 72);
+    text-shadow: 2px 2px 8px #000000;
     padding: 40px;
     width: 50%;
     background-image: url("/assets/photo-background.jpeg");
