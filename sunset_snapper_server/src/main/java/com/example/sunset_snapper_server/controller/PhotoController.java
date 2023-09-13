@@ -20,85 +20,85 @@ import com.example.sunset_snapper_server.service.PhotoService;
 @CrossOrigin(origins="*")
 public class PhotoController {
     
-    // @Autowired
-    // private PhotoService photoService;
+    @Autowired
+    private PhotoService photoService;
 
     // Controller method to upload photo to s3.
     // Is it necessary to include other details or just photo?
-    // @PostMapping(path="/uploadPhoto", consumes = "multipart/form-data")
-    // public ResponseEntity<String> uploadPhoto(
-    //     @RequestParam("username") String username,
-    //     @RequestParam("photo") MultipartFile photo,
-    //     @RequestParam("country") String country,
-    //     @RequestParam("city") String city,
-    //     @RequestParam("details") String details
-    // ) {
-    //     System.out.println("Received username: " + username);
-    //     System.out.println("Received photo: " + photo.getOriginalFilename());
-    //     System.out.println("Received country: " + country);
-    //     System.out.println("Received city: " + city);
-    //     System.out.println("Received details: " + details);
+    @PostMapping(path="/uploadPhoto", consumes = "multipart/form-data")
+    public ResponseEntity<String> uploadPhoto(
+        @RequestParam("username") String username,
+        @RequestParam("photo") MultipartFile photo,
+        @RequestParam("country") String country,
+        @RequestParam("city") String city,
+        @RequestParam("details") String details
+    ) {
+        System.out.println("Received username: " + username);
+        System.out.println("Received photo: " + photo.getOriginalFilename());
+        System.out.println("Received country: " + country);
+        System.out.println("Received city: " + city);
+        System.out.println("Received details: " + details);
 
-    //     try {
-    //         // Upload to s3
-    //         String photoUrl = photoService.uploadPhotoS3(username, photo, country, city, details);
+        try {
+            // Upload to s3
+            String photoUrl = photoService.uploadPhotoS3(username, photo, country, city, details);
 
-    //         // Upload to SQL
-    //         Photo photoToUpload = new Photo();
-    //             photoToUpload.setUsername(username);
-    //             photoToUpload.setPhoto(photoUrl);
-    //             photoToUpload.setCountry(country);
-    //             photoToUpload.setCity(city);
-    //             photoToUpload.setDetails(details);
-    //         photoService.uploadPhotoSQL(photoToUpload);
+            // Upload to SQL
+            Photo photoToUpload = new Photo();
+                photoToUpload.setUsername(username);
+                photoToUpload.setPhoto(photoUrl);
+                photoToUpload.setCountry(country);
+                photoToUpload.setCity(city);
+                photoToUpload.setDetails(details);
+            photoService.uploadPhotoSQL(photoToUpload);
 
-    //         String jsonResponse = String.format("{\"photoUsername\": \"%s\"}", photoUrl);
-    //         return ResponseEntity.status(HttpStatus.SC_CREATED).body(jsonResponse);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-	// 		String jsonResponse = String.format("{\"error\": \"%s\"}", e.getMessage());
-	// 		return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).body(jsonResponse);
-    //     }
-    // }
+            String jsonResponse = String.format("{\"photoUsername\": \"%s\"}", photoUrl);
+            return ResponseEntity.status(HttpStatus.SC_CREATED).body(jsonResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+			String jsonResponse = String.format("{\"error\": \"%s\"}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).body(jsonResponse);
+        }
+    }
 
-    // @GetMapping(path = "/city/{city}", produces = "application/json")
-    // public ResponseEntity<List<Photo>> getPhotosByCity(@PathVariable String city) {
+    @GetMapping(path = "/city/{city}", produces = "application/json")
+    public ResponseEntity<List<Photo>> getPhotosByCity(@PathVariable String city) {
 
-    //     System.out.println("Received request for city: " + city);
+        System.out.println("Received request for city: " + city);
 
-    //     List<Photo> photoList = photoService.getPhotosByCity(city);
-	// 	System.out.println("Returning photoList:");
+        List<Photo> photoList = photoService.getPhotosByCity(city);
+		System.out.println("Returning photoList:");
 
-	// 	for (Photo photo: photoList) {
-	// 		System.out.println("Received photo: " + photo.getPhoto());
-	// 	}
+		for (Photo photo: photoList) {
+			System.out.println("Received photo: " + photo.getPhoto());
+		}
 
-    //     return ResponseEntity.ok(photoList);
-    // }
+        return ResponseEntity.ok(photoList);
+    }
 
-    // @PostMapping(path = "/incrementLike/{photoId}", produces = "application/json")
-    // public ResponseEntity<Boolean> incrementLike(@PathVariable Integer photoId) {
+    @PostMapping(path = "/incrementLike/{photoId}", produces = "application/json")
+    public ResponseEntity<Boolean> incrementLike(@PathVariable Integer photoId) {
 
-    //     System.out.println("Received request for incrementing like: " + photoId);
+        System.out.println("Received request for incrementing like: " + photoId);
 
-    //     Boolean success = photoService.incrementLike(photoId);
-    //     System.out.println("Increment like: " + success);
+        Boolean success = photoService.incrementLike(photoId);
+        System.out.println("Increment like: " + success);
 
-    //     return ResponseEntity.ok(success);
-    // }
+        return ResponseEntity.ok(success);
+    }
 
-    // @GetMapping(path = "/username/{username}", produces = "application/json")
-    // public ResponseEntity<List<Photo>> getUserPhotos(@PathVariable String username) {
+    @GetMapping(path = "/username/{username}", produces = "application/json")
+    public ResponseEntity<List<Photo>> getUserPhotos(@PathVariable String username) {
 
-    //     System.out.println("Received request for username: " + username);
+        System.out.println("Received request for username: " + username);
 
-    //     List<Photo> photoList = photoService.getPhotosByUser(username);
-    //     System.out.println("Returning photoList:");
+        List<Photo> photoList = photoService.getPhotosByUser(username);
+        System.out.println("Returning photoList:");
 
-    //     for (Photo photo: photoList) {
-    //         System.out.println("Received photo: " + photo.getPhoto());
-    //     }
+        for (Photo photo: photoList) {
+            System.out.println("Received photo: " + photo.getPhoto());
+        }
 
-    //     return ResponseEntity.ok(photoList);
-    // }
+        return ResponseEntity.ok(photoList);
+    }
 }

@@ -15,11 +15,12 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    const body = { username, password };
-    const url = `${BACKEND_URL}/login`;
+    // const body = { username, password };
+    // const url = `${BACKEND_URL}/login`;
     this.isLoggedIn = true;
     
-    return this.httpClient.post(url, body);
+    return Observable.create( (observer: any) =>  observer.complete());
+    // return this.httpClient.post(url, body);
     // ???: How to handle generated token from backend
 
   }

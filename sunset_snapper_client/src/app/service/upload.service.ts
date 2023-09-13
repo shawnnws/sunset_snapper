@@ -6,9 +6,10 @@ import { Photo } from "../model/photo";
 
 export function uploadPhoto(httpClient: HttpClient, formData: FormData): Observable<any> {
   const headers = new HttpHeaders()
-    .append('Accept', 'application/json');
+    .append("Access-Control-Allow-Origin", "http://localhost:8080")
   const url = `${BACKEND_URL}/uploadPhoto`;
 
+  alert(`uploadPhoto called for POST - ${url}`)
   return httpClient.post(url, formData, { headers });
 }
 

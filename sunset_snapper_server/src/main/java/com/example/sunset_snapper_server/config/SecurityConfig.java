@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.sunset_snapper_server.config;
 
 import javax.crypto.spec.SecretKeySpec;
 

@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.sunset_snapper_server.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

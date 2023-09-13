@@ -68,7 +68,9 @@ export class UploadComponent implements OnInit {
       uploadPhoto(this.httpClient, formData).subscribe(
         (response) => {
           console.log('Form submitted successfully...', response);
-          alert(JSON.stringify(response))
+          // alert(JSON.stringify(response))
+          this.router.navigate(['/']);
+
         },
         (error) => {
           console.error('Error submitting form...', error);
@@ -79,7 +81,6 @@ export class UploadComponent implements OnInit {
       console.log('Form contains errors...');
     }
 
-    this.router.navigate(['/']);
   }
 
   /* 

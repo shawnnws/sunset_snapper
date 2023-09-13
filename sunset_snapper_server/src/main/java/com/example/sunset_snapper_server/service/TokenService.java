@@ -16,8 +16,8 @@ import com.example.sunset_snapper_server.model.UserPrincipal;
 @Service
 public class TokenService {
     
-    // @Value("${jwt.key.secret}")
-    private String secretKey = "jwt.key.secret=T8WezeQoJVmHLw+i9QoVRZE5ttWikR3eCEhLsCrZyDmee8RT++Iz8LW8Sm7tQSK95y6Er3ei/VWvhqUB/E+sJg==";
+    @Value("${jwt.key.secret}")
+    private String secretKey;
 
     public String generateToken(Authentication auth) {
         UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
