@@ -75,19 +75,22 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- these two are not safe -->
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency> -->
-		<!-- <dependency>
+
+		<!-- this is safe -->
+		<dependency>
 			<groupId>com.auth0</groupId>
 			<artifactId>java-jwt</artifactId>
 			<version>4.4.0</version>
-		</dependency> -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
