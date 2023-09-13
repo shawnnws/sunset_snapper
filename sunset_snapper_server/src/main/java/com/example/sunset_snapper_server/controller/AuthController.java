@@ -2,7 +2,7 @@ package com.example.sunset_snapper_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
+// import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,11 +37,11 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully...");
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(Authentication auth) {
-        String token = tokenService.generateToken(auth);
-        return ResponseEntity.ofNullable(token);
-    }
+    // @PostMapping("/login")
+    // public ResponseEntity<String> login(Authentication auth) {
+    //     String token = tokenService.generateToken(auth);
+    //     return ResponseEntity.ofNullable(token);
+    // }
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout() {
