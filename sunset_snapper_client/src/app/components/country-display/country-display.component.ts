@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Photo } from 'src/app/model/photo';
 import { getPhotosByCity, incrementLike } from 'src/app/service/upload.service';
+import { MaterialModule } from 'src/app/material.module';
 
 @Component({
   selector: 'app-country-display',

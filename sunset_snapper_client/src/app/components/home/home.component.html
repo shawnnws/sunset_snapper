@@ -9,15 +9,16 @@
 
 <div class="layer-two">
 
-    <span class="browse-text">
+    <span class="browser">
         <label for="city-input">Browse by City: </label>
             <input class="text-input" id="cityInput" type="text" [(ngModel)]="city" placeholder="Enter city" required>
-            <button [routerLink]="['/city', city]" class="search-button">Search</button>
-        <br>
+    </span>
+    <span class="search-button">
+        <button mat-raised-button color="primary" class="button-text" [routerLink]="['/city', city]">Search</button>
     </span>
 
-    <span>
-        <button class="post-button" type="submit" (click)="onPostButtonClick()">Post Something!</button>
+    <span class="post-button">
+        <button class="button-text" mat-raised-button color="primary" style="width: 200px; height: 50px;" type="submit" (click)="onPostButtonClick()">Post Something!</button>
     </span>
 
     <!-- <span>

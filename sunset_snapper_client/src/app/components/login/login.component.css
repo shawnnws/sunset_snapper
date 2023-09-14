@@ -30,6 +30,7 @@ body {
 
 .message {
     text-align: center;
+    color: rgb(14, 48, 67);
 }
 
 .login-body {
@@ -40,7 +41,7 @@ body {
     border-style: solid;
     border-width: 5px;
     border-color: rgb(239, 134, 73);
-    color: rgb(239, 134, 73);
+    color: rgb(14, 48, 67);
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: beige;

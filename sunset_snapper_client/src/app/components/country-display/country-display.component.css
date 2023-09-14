@@ -1,7 +1,7 @@
 body {
     /* background-color:rgb(206, 163, 140); */
     /* background-color: rgb(14, 48, 67); */
-    background-color: rgb(239, 127, 62);
+    background-color: rgb(14, 48, 67);
     height: auto;
 }
 
@@ -49,6 +49,6 @@ body {
 }
 
 .text {
-    color: rgb(14, 48, 67);
+    color: rgb(239, 134, 73);
     font-family: bradley hand;
 }

@@ -15,23 +15,26 @@
 
     <table class="city-photos">
         <ng-container *ngFor="let photo of photoList; let i = index">
-            <tr *ngIf="i % 3 == 0">
+            <tr *ngIf="i % 2 == 0">
                 <td class="photo">
-                    <p>
-                        <img src="{{ photoList[i].photo }}" width="600px">
-                    </p>
-                    <button type="click" (click)="onLikeClick(photoList[i].photoId)">Like</button> {{ photoList[i].likes }}
-                    <p>
+                    
+                    <img src="{{ photoList[i].photo }}" width="600px">
+                    <br>
+                    <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i].photoId)">
+                        <mat-icon>favorite</mat-icon>{{ photoList[i].likes }}
+                    </button>                    <p>
                         <span class="text">Posted by: </span>
                         <a routerLink="/username/{{photoList[i].username}}">{{ photoList[i].username }}</a>
                     </p>
                     <p> {{ photoList[i].details }} </p>
                 </td>
+
                 <td class="photo" *ngIf="i + 1 < photoList.length">
-                    <p>
-                        <img src="{{ photoList[i + 1].photo }}" width="600px">
-                    </p>
-                    <button type="click" (click)="onLikeClick(photoList[i + 1].photoId)">Like</button> {{ photoList[i + 1].likes }}
+                    <img src="{{ photoList[i + 1].photo }}" width="600px"> 
+                    <br>
+                    <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i + 1].photoId)">
+                        <mat-icon>favorite</mat-icon>{{ photoList[i + 1].likes }}
+                    </button> 
                     <p>
                         <span class="text">Posted by: </span>
                         <a routerLink="/username/{{photoList[i + 1].username}}">{{ photoList[i + 1].username }}</a>

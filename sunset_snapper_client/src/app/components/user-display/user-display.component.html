@@ -9,7 +9,7 @@
             </td>
         </tr>
         <tr>
-            <td class="user-header">{{username}}</td>
+            <td class="user-header">Photos by: {{username}}</td>
         </tr>
     </table>
 
@@ -20,21 +20,27 @@
                     <p>
                         <img src="{{ photoList[i].photo }}" width="600px">
                     </p>
-                    <button type="click" (click)="onLikeClick(photoList[i].photoId)">Like</button> {{ photoList[i].likes }}
-                    <p>
-                        {{ username }}
-                    </p>
-                    <p> {{ photoList[i].details }} </p>
+                    <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i].photoId)">
+                        <mat-icon>favorite</mat-icon>{{ photoList[i].likes }}
+                    </button> 
+                    <h4 class="detail-box">
+                        City: {{ photoList[i].city}}
+                        <br>
+                        {{ photoList[i].details }}
+                    </h4>
                 </td>
                 <td class="photo" *ngIf="i + 1 < photoList.length">
                     <p>
                         <img src="{{ photoList[i + 1].photo }}" width="600px">
                     </p>
-                    <button type="click" (click)="onLikeClick(photoList[i + 1].photoId)">Like</button> {{ photoList[i + 1].likes }}
-                    <p>
-                        {{ username }}
-                    </p>
-                    <p> {{ photoList[i + 1].details }} </p>
+                    <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i + 1].photoId)">
+                        <mat-icon>favorite</mat-icon>{{ photoList[i + 1].likes }}
+                    </button> 
+                    <h4 class="detail-box">
+                        City: {{ photoList[i + 1].city}}
+                        <br>
+                        {{ photoList[i + 1].details }}
+                    </h4>
                 </td>
             </tr>
         </ng-container>

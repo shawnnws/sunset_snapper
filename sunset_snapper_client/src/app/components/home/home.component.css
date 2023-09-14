@@ -40,15 +40,16 @@ body {
 
 .post-button {
     text-align: center;
-    height: 65px;
-    width: 250px;
-    font-family: bradley hand;
-    font-size: 30px;
     margin-right: 40px;
     float: right;
 }
 
-.browse-text {
+.button-text { 
+    font-family: bradley hand;
+    font-size: 20px;
+}
+
+.browser {
     font-size: 25px;
     font-family: bradley hand;
     color: rgb(14, 48, 67);
@@ -56,11 +57,15 @@ body {
 }
 
 .search-button {
-    height: 30px;
+    height: 40px;
     width: 100px;
     margin-left: 10px;
+}
+
+.search-text {
     font-family: bradley hand;
     font-size: 20px;
+    height: 30px;
 }
 
 .text-input {

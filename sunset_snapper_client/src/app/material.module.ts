@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule  } from '@angular/material/dialog';
 
 
 const MATERIAL = [
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  MatIconModule,
 ]
 
 @NgModule({

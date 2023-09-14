@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GLOBAL_USERNAME, setGlobalUsername, getGlobalUsername, resetGlobalUsername } from 'src/app/service/user.service';
+import { MaterialModule } from 'src/app/material.module';
 
 @Component({
   selector: 'app-home',

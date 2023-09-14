@@ -33,8 +33,8 @@ body {
 .user-header {
     font-family: bradley hand;
     /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
-    font-size: 75px;
+    color: rgb(14, 48, 67);
+    font-size: 50px;
     text-align: center;
 }
 
@@ -44,5 +44,6 @@ body {
     font-size: 20px;
     font-family: bradley hand;
     /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
+    color: rgb(14, 48, 67);
 }
+
