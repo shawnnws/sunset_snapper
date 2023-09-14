@@ -1,6 +1,7 @@
 body {
     /* background-color:rgb(206, 163, 140); */
-    background-color: rgb(14, 48, 67);
+    /* background-color: rgb(14, 48, 67); */
+    background-color: rgb(239, 127, 62);
     height: auto;
 }
 
@@ -9,18 +10,19 @@ body {
 }
 
 .layer-two {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .brand {
+    background-color: rgb(14, 48, 67);
     font-family: bradley hand;
     color: rgb(239, 127, 62);
     font-size: 80px;
     text-align: center;
     /* border-style: solid;
     border-color: grey; */
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 .login-button {
@@ -38,18 +40,19 @@ body {
 
 .post-button {
     text-align: center;
-    height: 75px;
+    height: 65px;
     width: 250px;
     font-family: bradley hand;
     font-size: 30px;
-    margin-left: 60px;
+    margin-right: 40px;
+    float: right;
 }
 
 .browse-text {
     font-size: 25px;
     font-family: bradley hand;
-    color: rgb(239, 127, 62);
-    margin-left: 20px;
+    color: rgb(14, 48, 67);
+    margin-left: 50px;
 }
 
 .search-button {

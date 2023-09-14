@@ -9,12 +9,18 @@
         </tr>
     </table>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <form>
+        <!-- [formGroup]="loginForm" (ngSubmit)="onLogin()" -->
     <table class="login-body">
+        <tr class="message">
+            Please enter username to proceed!
+        </tr>
+        
         <tr>
             <td class="login-text">
                 <label for="username">Username: </label>
-                <input id="username" type="text" formControlName="username" placeholder="Enter Username" required>
+                <input id="username" type="text" [(ngModel)]="username" name="username" placeholder="Enter Username" required>
+                <!-- formControlName="username" -->
             </td>
         </tr>
         <tr>
@@ -25,7 +31,7 @@
               </td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td class="login-text">
                 <label for="password">Password: </label>
                 <input id="password" type="text" formControlName="password" placeholder="Enter Password" required>
@@ -37,11 +43,11 @@
                   Password is required!
                 </div>
               </td>
-        </tr>
+        </tr> -->
 
         <tr class="button">
             <span class="login-button">
-                <button class="login-button" type="submit">Login</button>
+                <button class="login-button" type="submit" (click)="onLogin()">Login</button>
             </span>
             
             <span class="home">

@@ -10,7 +10,7 @@ import { UserDisplayComponent } from './components/user-display/user-display.com
 const routes: Routes = [
   { path:"", component: HomeComponent },
   { path:"login", component: LoginComponent },
-  { path:"upload", component: UploadComponent },
+  { path:"upload/:GLOBAL_USERNAME", component: UploadComponent },
   { path:"city/:city", component: CountryDisplayComponent },
   { path:"username/:username", component: UserDisplayComponent },
   

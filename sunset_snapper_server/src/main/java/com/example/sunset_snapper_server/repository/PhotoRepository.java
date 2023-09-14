@@ -27,9 +27,7 @@ public class PhotoRepository {
     private final String GET_PHOTOS_BY_COUNTRY_AND_CITY_SQL = "SELECT username, photo, details, likes FROM photos WHERE country = ? AND city = ?";
     private final String GET_PHOTOS_BY_CITY_SQL = "SELECT photo_id, username, photo, details, likes FROM photos WHERE city = ?";
 
-    // TO WORK ON: USER DATABASE
-    private final String INSERT_NEW_USER_SQL = "insert into users (username, password) values (?, ?)";
-
+    // Getting photos based on username
     private final String GET_PHOTOS_BY_USER_SQL = "SELECT photo_id, photo, country, city, details, likes FROM photos where username = ?";
 
 
@@ -75,18 +73,6 @@ public class PhotoRepository {
 
         System.out.println(photoList);
         return photoList;
-    }
-
-    public Boolean insertNewUser(User user) {
-        int saved = 0;
-        saved = template.update(INSERT_NEW_USER_SQL,
-            user.getUsername(),
-            user.getPassword());
-
-        if (saved > 0)
-            return true;
-        else
-            return false;
     }
 
     public List<Photo> getPhotosByUser(String username) {

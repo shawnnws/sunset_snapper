@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule  } from '@angular/material/dialog';
 
 
 const MATERIAL = [
   MatButtonModule,
-
+  MatDialogModule
 ]
 
 @NgModule({
@@ -17,6 +18,9 @@ const MATERIAL = [
   ],
   exports: [
     MATERIAL,
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hadBackdrop: false}}
   ]
 })
 export class MaterialModule { }

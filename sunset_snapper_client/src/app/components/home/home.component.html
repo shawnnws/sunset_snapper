@@ -1,11 +1,49 @@
 <body>
-
 <table class="header">
 
     <tr>
         <td class="brand">SunsetSnapper</td>
     </tr>
+
+</table>
+
+<div class="layer-two">
+
+    <span class="browse-text">
+        <label for="city-input">Browse by City: </label>
+            <input class="text-input" id="cityInput" type="text" [(ngModel)]="city" placeholder="Enter city" required>
+            <button [routerLink]="['/city', city]" class="search-button">Search</button>
+        <br>
+    </span>
+
+    <span>
+        <button class="post-button" type="submit" (click)="onPostButtonClick()">Post Something!</button>
+    </span>
+
+    <!-- <span>
+        <div *ngIf="isLoggedIn; else loginSection">
+            <p>Welcome, {{ loggedInUsername }}!</p>
+            <button class="login-button" (click)="logout()">Logout</button>
+        </div>
+        <ng-template #loginSection>
+            <button class="login-button" type="submit" [routerLink]="['/login']">Login</button>
+        </ng-template>
+    </span> -->
     
+</div>
+
+
+<table class="homepage-city">
+    <ng-container *ngFor="let city of cities; let i = index">
+        <tr *ngIf="i % 2 == 0">
+            <td class="country" routerLink="/city/{{cities[i]}}"> {{cities[i] }} </td>
+            <td class="country" *ngIf="i + 1 < cities.length" routerLink="/city/{{cities[i+1]}}"> {{ cities[i+1] }}</td>
+        </tr>
+    </ng-container>
+</table>
+
+</body>
+
     <!-- <tr>
         <td class="login">
             <div *ngIf="isLoggedIn; else loginSection">
@@ -31,41 +69,3 @@
             <button [routerLink]="['/city', city]" class="search-button">Search</button>
         </td>
     </tr> -->
-
-</table>
-
-<div class="layer-two">
-
-    <span class="browse-text">
-        <label for="city-input">Browse by City: </label>
-            <input class="text-input" id="cityInput" type="text" [(ngModel)]="city" placeholder="Enter city" required>
-            <button [routerLink]="['/city', city]" class="search-button">Search</button>
-    </span>
-
-    <span>
-        <button class="post-button" type="submit" [routerLink]="['/upload']">Post Something!</button>
-    </span>
-
-    <span>
-        <div *ngIf="isLoggedIn; else loginSection">
-            <p>Welcome, {{ loggedInUsername }}!</p>
-            <button class="login-button" (click)="logout()">Logout</button>
-        </div>
-        <ng-template #loginSection>
-            <button class="login-button" type="submit" [routerLink]="['/login']">Login</button>
-        </ng-template>
-    </span>
-    
-</div>
-
-
-<table class="homepage-city">
-    <ng-container *ngFor="let city of cities; let i = index">
-        <tr *ngIf="i % 2 == 0">
-            <td class="country" routerLink="/city/{{cities[i]}}"> {{cities[i] }} </td>
-            <td class="country" *ngIf="i + 1 < cities.length" routerLink="/city/{{cities[i+1]}}"> {{ cities[i+1] }}</td>
-        </tr>
-    </ng-container>
-</table>
-
-</body>

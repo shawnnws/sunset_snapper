@@ -1,5 +1,7 @@
 body {
-    background-color:rgb(33, 97, 120);
+    /* background-color:rgb(206, 163, 140); */
+    /* background-color: rgb(14, 48, 67); */
+    background-color: rgb(239, 127, 62);
     height: auto;
 }
 
@@ -17,19 +19,22 @@ body {
 }
 
 .brand {
+    background-color: rgb(14, 48, 67);
     font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
-    font-size: 100px;
+    color: rgb(239, 127, 62);
+    font-size: 80px;
     text-align: center;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: grey; */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .city-header {
     font-family: bradley hand;
     /* color: rgb(219, 221, 227); */
     color: rgb(239, 134, 73);
+    background-color: rgb(14, 48, 67);
     font-size: 75px;
     text-align: center;
 }
@@ -41,4 +46,9 @@ body {
     font-family: bradley hand;
     /* color: rgb(219, 221, 227); */
     color: rgb(239, 134, 73);
+}
+
+.text {
+    color: rgb(14, 48, 67);
+    font-family: bradley hand;
 }

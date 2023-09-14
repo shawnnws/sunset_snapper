@@ -6,8 +6,7 @@ import { uploadPhoto } from 'src/app/service/upload.service';
 import { Observable, catchError, map, of } from 'rxjs';
 import { GeoCodingResponse, CityCountry, geocode } from 'src/app/service/geocoding.service';
 import { GOOGLE_MAPS_API_KEY } from 'src/environment-variables';
-import { LoginService } from 'src/app/service/login.service';
-import { AuthService } from 'src/app/service/auth.service';
+import { GLOBAL_USERNAME } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-upload',
@@ -16,20 +15,20 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class UploadComponent implements OnInit {
 
-  loggedInUsername: string | null = null
+  // loggedInUsername: string | null = null
   country!: string
   city!: string
 
   myForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private httpClient: HttpClient, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private httpClient: HttpClient, private router: Router) {
     this.apiLoaded = httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}`, 'callback')
         .pipe(
           map(() => true),
           catchError(() => of(false)),
         );
 
-    this.loggedInUsername = this.authService.getLoggedInUsername();
+    // this.loggedInUsername = this.authService.getLoggedInUsername();
   }
 
   ngOnInit(): void {
@@ -59,7 +58,7 @@ export class UploadComponent implements OnInit {
   submitForm() {
     if (this.myForm.valid) {
       const formData = new FormData()
-      formData.append('username', this.loggedInUsername || '');
+      formData.append('username', GLOBAL_USERNAME || '');
       formData.append('photo', this.myForm.value.photo);
       formData.append('country', this.country);
       formData.append('city', this. city);

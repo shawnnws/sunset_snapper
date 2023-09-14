@@ -28,6 +28,10 @@ body {
     padding-top: 50px;
 }
 
+.message {
+    text-align: center;
+}
+
 .login-body {
     width: 40%;
     align-items: center;

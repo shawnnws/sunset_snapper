@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sunset_snapper_server.model.Photo;
+import com.example.sunset_snapper_server.model.UserResponse;
 import com.example.sunset_snapper_server.service.PhotoService;
+import com.example.sunset_snapper_server.service.UserService;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -22,6 +25,9 @@ public class PhotoController {
     
     @Autowired
     private PhotoService photoService;
+
+    @Autowired
+    private UserService userService;
 
     // Controller method to upload photo to s3.
     // Is it necessary to include other details or just photo?
@@ -61,6 +67,33 @@ public class PhotoController {
         }
     }
 
+    @PostMapping(path = "/createUser/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserResponse> createUser(@PathVariable String username) {
+
+        // if (userService.getUserByUsername(username) != null) {
+        //     return ResponseEntity.badRequest().body("Username is not available!");
+        // }
+        // else {
+            userService.createUser(username);
+            UserResponse response = new UserResponse(username);
+            return ResponseEntity.ok(response);
+        // }
+    }
+
+    @GetMapping(path = "/checkUser/{username}", produces = "application/json")
+    public ResponseEntity<Boolean> checkIfUserExists(@PathVariable String username) {
+        System.out.println("Received username: " + username);
+        Boolean exists = false;
+        if (userService.getUserByUsername(username) == null) {
+            System.out.println("Username not found...");
+            return ResponseEntity.ok(exists);
+        } else {
+            System.out.println("Username found...");
+            exists = true;
+            return ResponseEntity.ok(exists);
+        }
+    }
+
     @GetMapping(path = "/city/{city}", produces = "application/json")
     public ResponseEntity<List<Photo>> getPhotosByCity(@PathVariable String city) {
 
@@ -76,17 +109,6 @@ public class PhotoController {
         return ResponseEntity.ok(photoList);
     }
 
-    @PostMapping(path = "/incrementLike/{photoId}", produces = "application/json")
-    public ResponseEntity<Boolean> incrementLike(@PathVariable Integer photoId) {
-
-        System.out.println("Received request for incrementing like: " + photoId);
-
-        Boolean success = photoService.incrementLike(photoId);
-        System.out.println("Increment like: " + success);
-
-        return ResponseEntity.ok(success);
-    }
-
     @GetMapping(path = "/username/{username}", produces = "application/json")
     public ResponseEntity<List<Photo>> getUserPhotos(@PathVariable String username) {
 
@@ -100,5 +122,16 @@ public class PhotoController {
         }
 
         return ResponseEntity.ok(photoList);
+    }
+
+    @PostMapping(path = "/incrementLike/{photoId}", produces = "application/json")
+    public ResponseEntity<Boolean> incrementLike(@PathVariable Integer photoId) {
+
+        System.out.println("Received request for incrementing like: " + photoId);
+
+        Boolean success = photoService.incrementLike(photoId);
+        System.out.println("Increment like: " + success);
+
+        return ResponseEntity.ok(success);
     }
 }

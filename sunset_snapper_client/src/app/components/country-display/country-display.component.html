@@ -22,6 +22,7 @@
                     </p>
                     <button type="click" (click)="onLikeClick(photoList[i].photoId)">Like</button> {{ photoList[i].likes }}
                     <p>
+                        <span class="text">Posted by: </span>
                         <a routerLink="/username/{{photoList[i].username}}">{{ photoList[i].username }}</a>
                     </p>
                     <p> {{ photoList[i].details }} </p>
@@ -32,6 +33,7 @@
                     </p>
                     <button type="click" (click)="onLikeClick(photoList[i + 1].photoId)">Like</button> {{ photoList[i + 1].likes }}
                     <p>
+                        <span class="text">Posted by: </span>
                         <a routerLink="/username/{{photoList[i + 1].username}}">{{ photoList[i + 1].username }}</a>
                     </p>
                     <p> {{ photoList[i + 1].details }} </p>

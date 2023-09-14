@@ -1,55 +1,64 @@
-import { Injectable } from '@angular/core';
-import { User } from '../model/user';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { BACKEND_URL } from 'src/environment-variables';
+// import { Injectable } from '@angular/core';
+// import { User } from '../model/user';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs';
+// import { BACKEND_URL } from 'src/environment-variables';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthService {
+// // set to null on logout
+// // set to username (string) on login
 
-  loggedInUser!: User;
-  isLoggedIn = false;
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
+//   constructor(private httpClient: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    // const body = { username, password };
-    // const url = `${BACKEND_URL}/login`;
-    this.isLoggedIn = true;
+//   login(username: string): Observable<any> {
+//     // const body = { username, password };
+//     // const url = `${BACKEND_URL}/login`;
+//     this.isLoggedIn = true;
     
-    return Observable.create( (observer: any) =>  observer.complete());
-    // return this.httpClient.post(url, body);
-    // ???: How to handle generated token from backend
+//     // return Observable.create( (observer: any) =>  observer.complete());
+//     // return this.httpClient.post(url, body);
+//     // ???: How to handle generated token from backend
 
-  }
+//   }
 
-  logout(): void {
-    this.loggedInUsername = null;
-  }
+//   export function insertNewUser(httpClient: HttpClient, formData: FormData): Observable<any> {
+//     const headers = new HttpHeaders()
+//       .append('Accept', 'application/json');
+//     const url = `${BACKEND_URL}/__createNewUser__`;
+  
+//     return httpClient.post(url, formData, { headers });
+//     // check!
+//   }
 
-  setLoggedInUser(user: User): void {
-    this.loggedInUser = user;
-  }
+//   // logout(): void {
+//   //   this.loggedInUsername = null;
+//   // }
 
-  getLoggedInUser(): User {
-    return this.loggedInUser;
-  }
+//   // setLoggedInUser(user: User): void {
+//   //   this.loggedInUser = user;
+//   // }
+
+//   // getLoggedInUser(): User {
+//   //   return this.loggedInUser;
+//   // }
 
 
 
-  loggedInUsername: string | null = null
+//   // loggedInUsername: string | null = null
 
-  setLoggedInUsername(username: string): void {
-    this.loggedInUsername = username;
-  }
+//   // setLoggedInUsername(username: string): void {
+//   //   this.loggedInUsername = username;
+//   // }
 
-  getLoggedInUsername(): string | null {
-    return this.loggedInUsername;
-  }
+//   // getLoggedInUsername(): string | null {
+//   //   return this.loggedInUsername;
+//   // }
 
-  getisLoggedIn(): boolean {
-    return this.isLoggedIn;
-  }
-}
+//   // getisLoggedIn(): boolean {
+//   //   return this.isLoggedIn;
+//   // }
+// }

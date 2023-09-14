@@ -32,14 +32,14 @@ export function incrementLike(httpClient: HttpClient, photoId: number): Observab
   // put method correct since we are doing an update?
 }
 
-export function getPhotosByCountryCity(httpClient: HttpClient, country: string, city: string): Observable<Photo[]> {
-  const headers = new HttpHeaders()
-    .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/____________/country=${country}&city=${city}`;
+// export function getPhotosByCountryCity(httpClient: HttpClient, country: string, city: string): Observable<Photo[]> {
+//   const headers = new HttpHeaders()
+//     .append('Accept', 'application/json');
+//   const url = `${BACKEND_URL}/____________/country=${country}&city=${city}`;
 
-  return httpClient.get<Photo[]>(url, { headers });
-  // check!
-}
+//   return httpClient.get<Photo[]>(url, { headers });
+//   // check!
+// }
 
 export function getPhotosByCity(httpClient: HttpClient, city: string): Observable<Photo[]> {
   const headers = new HttpHeaders()
@@ -47,15 +47,6 @@ export function getPhotosByCity(httpClient: HttpClient, city: string): Observabl
   const url = `${BACKEND_URL}/city/${city}`;
 
   return httpClient.get<Photo[]>(url, { headers });
-}
-
-export function insertNewUser(httpClient: HttpClient, formData: FormData): Observable<any> {
-  const headers = new HttpHeaders()
-    .append('Accept', 'application/json');
-  const url = `${BACKEND_URL}/__createNewUser__`;
-
-  return httpClient.post(url, formData, { headers });
-  // check!
 }
 
 export function getPhotosByUser(httpClient: HttpClient, username: string): Observable<Photo[]> {

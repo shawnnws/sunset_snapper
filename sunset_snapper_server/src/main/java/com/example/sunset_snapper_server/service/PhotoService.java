@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sunset_snapper_server.model.Photo;
-import com.example.sunset_snapper_server.model.User;
 import com.example.sunset_snapper_server.repository.PhotoRepository;
 import com.example.sunset_snapper_server.repository.S3Repository;
+import com.example.sunset_snapper_server.repository.UserRepository;
 
 @Service
 public class PhotoService {
@@ -20,6 +20,7 @@ public class PhotoService {
 
     @Autowired
     private PhotoRepository photoRepo;
+
 
     // Method to upload photo to s3 with the form data received from client.
     public String uploadPhotoS3(String username, MultipartFile photo, String country, String city, String details) throws IOException {
@@ -54,11 +55,8 @@ public class PhotoService {
         return photoRepo.getPhotosByCity(city);
     }
 
-    public Boolean insertNewUser(User user) {
-        return photoRepo.insertNewUser(user);
-    }
-
     public List<Photo> getPhotosByUser(String username) {
         return photoRepo.getPhotosByUser(username);
     }
+
 }

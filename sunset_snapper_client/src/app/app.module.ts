@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CountryDisplayComponent } from './components/country-display/country-display.component';
 import { UserDisplayComponent } from './components/user-display/user-display.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserDisplayComponent } from './components/user-display/user-display.com
     UploadComponent,
     CountryDisplayComponent,
     UserDisplayComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

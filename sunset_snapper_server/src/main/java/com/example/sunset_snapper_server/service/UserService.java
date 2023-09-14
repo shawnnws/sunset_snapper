@@ -12,15 +12,15 @@ public class UserService {
     @Autowired
     UserRepository userRepo;
 
-    public User getUserByUserId(Integer userId) {
+    public String getUserByUserId(Integer userId) {
         return userRepo.getUserByUserId(userId);
     }
 
-    public User getUserByUsername(String username) {
+    public String getUserByUsername(String username) {
         return userRepo.getUserByUsername(username);
     }
 
-    public Boolean createUser(User user) {
-        return userRepo.createUser(user);
+    public Boolean createUser(String username) {
+        return userRepo.createUser(username);
     }
 }

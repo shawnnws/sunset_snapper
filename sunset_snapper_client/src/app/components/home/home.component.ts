@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
-import { LoginService } from 'src/app/service/login.service';
+import { GLOBAL_USERNAME, setGlobalUsername, getGlobalUsername, resetGlobalUsername } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,22 +14,27 @@ export class HomeComponent {
   ]
   city: string = ''
 
-  loggedInUsername: string | null;
-
-
-  constructor(private router: Router, private authService: AuthService) {
-    this.loggedInUsername = this.authService.getLoggedInUsername();
-  }
+  constructor(private router: Router) {}
 
   getPhotos() {
     this.router.navigate(['/city', this.city]);
   }
 
-  get isLoggedIn(): boolean {
-    return this.authService.getisLoggedIn();
+  // get GLOBAL_USERNAME() {
+  //   return getGlobalUsername()
+  // }
+
+
+
+  onPostButtonClick() {
+    if (getGlobalUsername() === null) {
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/upload', GLOBAL_USERNAME]);
+    }
   }
 
-  logout(): void {
-    this.authService.logout();
+  onLogout(): void {
+    resetGlobalUsername();
   }
 }
