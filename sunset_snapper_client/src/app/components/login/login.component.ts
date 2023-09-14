@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         // User clicked "Yes", create username and proceed.
         createNewUser(this.httpClient, this.username).subscribe(() => {
           setGlobalUsername(this.username);
-          this.router.navigate(['/']);
+          this.router.navigate(['/upload', this.username]);
         })
       }
     })
