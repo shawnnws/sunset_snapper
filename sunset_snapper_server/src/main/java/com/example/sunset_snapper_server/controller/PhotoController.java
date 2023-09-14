@@ -77,9 +77,10 @@ public class PhotoController {
         // }
         // else {
             userService.createUser(username);
-            UserResponse response = new UserResponse(username);
-            // Inject HttpSession here?
             session.setAttribute("username", username);
+
+            UserResponse response = new UserResponse((String)session.getAttribute("username"));
+            // Inject HttpSession here?
             return ResponseEntity.ok(response);
         // }
     }
