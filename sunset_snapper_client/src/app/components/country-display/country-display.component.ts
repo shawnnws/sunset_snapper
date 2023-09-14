@@ -14,8 +14,6 @@ export class CountryDisplayComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private activatedRoute: ActivatedRoute) {}
 
-  // @Input() country?: string
-  // @Input() city!: string
   city!: string
   photoList: Photo[] = []
 

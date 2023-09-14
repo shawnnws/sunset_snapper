@@ -4,8 +4,7 @@ public class User {
     
     private Integer userId;
     private String username;
-    // private String password;
-    // private String email;
+
 
     public Integer getUserId() {
         return this.userId;
@@ -21,12 +20,6 @@ public class User {
         this.username = username;
     }
 
-    // public String getPassword() {
-    //     return this.password;
-    // }
-    // public void setPassword(String password) {
-    //     this.password = password;
-    // }
 
     @Override
     public String toString() {

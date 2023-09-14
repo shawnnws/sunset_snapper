@@ -21,11 +21,6 @@ export class HomeComponent {
     this.router.navigate(['/city', this.city]);
   }
 
-  // get GLOBAL_USERNAME() {
-  //   return getGlobalUsername()
-  // }
-
-
 
   onPostButtonClick() {
     if (getGlobalUsername() === null) {

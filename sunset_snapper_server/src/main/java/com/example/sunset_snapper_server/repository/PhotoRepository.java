@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.sunset_snapper_server.model.Photo;
-import com.example.sunset_snapper_server.model.User;
 
 @Repository
 public class PhotoRepository {
@@ -18,17 +17,17 @@ public class PhotoRepository {
     private JdbcTemplate template;
 
     // Insert new photo details after uploading to s3 and getting url back
-    private final String UPLOAD_SQL = "INSERT INTO photos (username, photo, country, city, details, likes) VALUES (?, ?, ?, ?, ?, 1)";
+    private final String UPLOAD_SQL = "INSERT INTO sunset_snapper.photos (username, photo, country, city, details, likes) VALUES (?, ?, ?, ?, ?, 1)";
 
     // Updating like count of photo 
-    private final String INCREMENT_LIKE_SQL = "UPDATE photos SET likes = likes + 1 WHERE photo_id = ?";
+    private final String INCREMENT_LIKE_SQL = "UPDATE sunset_snapper.photos SET likes = likes + 1 WHERE photo_id = ?";
 
     // Getting photos based on specific country and city
-    private final String GET_PHOTOS_BY_COUNTRY_AND_CITY_SQL = "SELECT username, photo, details, likes FROM photos WHERE country = ? AND city = ?";
-    private final String GET_PHOTOS_BY_CITY_SQL = "SELECT photo_id, username, photo, details, likes FROM photos WHERE city = ?";
+    private final String GET_PHOTOS_BY_COUNTRY_AND_CITY_SQL = "SELECT username, photo, details, likes FROM sunset_snapper.photos WHERE country = ? AND city = ?";
+    private final String GET_PHOTOS_BY_CITY_SQL = "SELECT photo_id, username, photo, details, likes FROM sunset_snapper.photos WHERE city = ?";
 
     // Getting photos based on username
-    private final String GET_PHOTOS_BY_USER_SQL = "SELECT photo_id, photo, country, city, details, likes FROM photos where username = ?";
+    private final String GET_PHOTOS_BY_USER_SQL = "SELECT photo_id, photo, country, city, details, likes FROM sunset_snapper.photos where username = ?";
 
 
     public Boolean uploadPhoto(Photo photo) {

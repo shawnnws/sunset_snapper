@@ -19,7 +19,6 @@ import com.example.sunset_snapper_server.model.UserResponse;
 import com.example.sunset_snapper_server.service.PhotoService;
 import com.example.sunset_snapper_server.service.UserService;
 
-import jakarta.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -70,23 +69,16 @@ public class PhotoController {
     }
 
     @PostMapping(path = "/createUser/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserResponse> createUser(@PathVariable String username, HttpSession session) {
+    public ResponseEntity<UserResponse> createUser(@PathVariable String username) {
 
-        // if (userService.getUserByUsername(username) != null) {
-        //     return ResponseEntity.badRequest().body("Username is not available!");
-        // }
-        // else {
             userService.createUser(username);
-            session.setAttribute("username", username);
 
-            UserResponse response = new UserResponse((String)session.getAttribute("username"));
-            // Inject HttpSession here?
+            UserResponse response = new UserResponse(username);
             return ResponseEntity.ok(response);
-        // }
     }
 
     @GetMapping(path = "/checkUser/{username}", produces = "application/json")
-    public ResponseEntity<Boolean> checkIfUserExists(@PathVariable String username, HttpSession session) {
+    public ResponseEntity<Boolean> checkIfUserExists(@PathVariable String username) {
         System.out.println("Received username: " + username);
         Boolean exists = false;
         if (userService.getUserByUsername(username) == null) {
@@ -95,8 +87,7 @@ public class PhotoController {
         } else {
             System.out.println("Username found...");
             exists = true;
-            // Inject HttpSession here?
-            session.setAttribute("username", username);
+
             return ResponseEntity.ok(exists);
         }
     }

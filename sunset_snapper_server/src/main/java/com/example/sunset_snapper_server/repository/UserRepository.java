@@ -2,11 +2,9 @@ package com.example.sunset_snapper_server.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.sunset_snapper_server.model.User;
 
 @Repository
 public class UserRepository {
@@ -14,11 +12,11 @@ public class UserRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private final String GET_USER_BY_ID_SQL = "select username from users where user_id = ?";
+    private final String GET_USER_BY_ID_SQL = "select username from sunset_snapper.users where user_id = ?";
 
-    private final String GET_USER_BY_USERNAME_SQL = "select username from users where username = ?";
+    private final String GET_USER_BY_USERNAME_SQL = "select username from sunset_snapper.users where username = ?";
 
-    private final String CREATE_USER_SQL = "insert into users (username) values (?)";
+    private final String CREATE_USER_SQL = "insert into sunset_snapper.users (username) values (?)";
 
     public String getUserByUserId(Integer userId) {
         try {
