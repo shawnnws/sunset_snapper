@@ -31,12 +31,3 @@ create table users (
     
     constraint pk_user_id primary key (user_id)
 );
-
-select * from photos;
-select * from users;
-insert into users (username, password, email) values ('shawn', 'shawnpassword', 'shawn@email.com');
-
-alter table users drop column password;
-delete from photos where photo_id = 34;
-
-select user_id, username from users where username = 'shawn';
