@@ -49,6 +49,23 @@ body {
 }
 
 .text {
-    color: rgb(239, 134, 73);
+    color: rgb(26, 20, 16);
     font-family: bradley hand;
+}
+
+.box {
+    background-color: rgb(180, 236, 245);
+    width: 60%;
+    margin-left: 10%;
+    /* margin-bottom: 0px; */
+    padding-bottom: 5px;
+    padding-left: 10px;
+    text-align: left;
+    border-radius: 25px;
+}
+
+.like-button {
+    float: right;
+    margin-right: 90px;
+    margin-top: 40px;
 }

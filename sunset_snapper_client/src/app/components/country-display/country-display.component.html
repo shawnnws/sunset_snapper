@@ -16,32 +16,40 @@
     <table class="city-photos">
         <ng-container *ngFor="let photo of photoList; let i = index">
             <tr *ngIf="i % 2 == 0">
+
                 <td class="photo">
-                    
                     <img src="{{ photoList[i].photo }}" width="600px">
                     <br>
                     <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i].photoId)">
                         <mat-icon>favorite</mat-icon>{{ photoList[i].likes }}
-                    </button>                    <p>
-                        <span class="text">Posted by: </span>
-                        <a routerLink="/username/{{photoList[i].username}}">{{ photoList[i].username }}</a>
-                    </p>
-                    <p> {{ photoList[i].details }} </p>
+                    </button>                    
+                    <div class="box">
+                        <p>
+                            <br>
+                            <span class="text">Posted by: </span>
+                            <a routerLink="/username/{{photoList[i].username}}">{{ photoList[i].username }}</a>   
+                        </p>
+                        <p class="text"> {{ photoList[i].details }} </p>
+                    </div>
                 </td>
 
                 <td class="photo" *ngIf="i + 1 < photoList.length">
-                    <img src="{{ photoList[i + 1].photo }}" width="600px"> 
+                    <img src="{{ photoList[i + 1].photo }}" width="600px">
                     <br>
                     <button class="like-button" mat-fab extended color="warn" type="click" (click)="onLikeClick(photoList[i + 1].photoId)">
                         <mat-icon>favorite</mat-icon>{{ photoList[i + 1].likes }}
-                    </button> 
-                    <p>
-                        <span class="text">Posted by: </span>
-                        <a routerLink="/username/{{photoList[i + 1].username}}">{{ photoList[i + 1].username }}</a>
-                    </p>
-                    <p> {{ photoList[i + 1].details }} </p>
+                    </button>                    
+                    <div class="box">
+                        <p>
+                            <br>
+                            <span class="text">Posted by: </span>
+                            <a routerLink="/username/{{photoList[i + 1].username}}">{{ photoList[i + 1].username }}</a>   
+                        </p>
+                        <p class="text"> {{ photoList[i + 1].details }} </p>
+                    </div>
                 </td>
             </tr>
+            <br>
         </ng-container>
     </table>
 
