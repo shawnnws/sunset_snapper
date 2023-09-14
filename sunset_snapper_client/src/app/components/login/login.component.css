@@ -1,55 +1,35 @@
-body {
-    /* background-color:rgb(206, 163, 140); */
-    background-color: rgb(14, 48, 67);
-    height: 100%;
-}
-
-.header {
-    width: 100%;
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
 .brand {
-    font-family: bradley hand;
-    color: rgb(239, 127, 62);
-    font-size: 80px;
-    text-align: center;
-    /* border-style: solid;
-    border-color: grey; */
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.login-header {
-    font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
-    color: rgb(239, 134, 73);
-    font-size: 75px;
-    text-align: center;
-    padding-top: 50px;
-}
-
-.message {
-    text-align: center;
-    color: rgb(14, 48, 67);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    color: white;
+    font-size: 50px;
+    border-style: solid;
+    border-color: white;
+    border-width: 8px;
+    padding: 20px;
 }
 
 .login-body {
-    width: 40%;
-    align-items: center;
     margin-left: auto;
     margin-right: auto;
-    border-style: solid;
-    border-width: 5px;
-    border-color: rgb(239, 134, 73);
-    color: rgb(14, 48, 67);
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: beige;
-    font-family: bradley hand;
-    font-size: 25px;
 }
 
 .login-text {
+    text-align: center;
+}
+
+.login-field {
+    height: 30px;
+    width: 200px;
     text-align: center;
 }
 

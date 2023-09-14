@@ -1,12 +1,8 @@
-body {
-    /* background-color:rgb(206, 163, 140); */
-    /* background-color: rgb(14, 48, 67); */
-    background-color: rgb(239, 127, 62);
-    height: auto;
-}
 
-.header {
-    width: 100%;
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
 .layer-two {
@@ -14,23 +10,17 @@ body {
 }
 
 .brand {
-    background-color: rgb(14, 48, 67);
-    font-family: bradley hand;
-    color: rgb(239, 127, 62);
-    font-size: 80px;
-    text-align: center;
-    /* border-style: solid;
-    border-color: grey; */
-    padding-top: 20px;
-    padding-bottom: 15px;
-}
-
-.login-button {
-    float: right;
-    font-family: bradley hand;
-    font-size: 20px;
-    height: 35px;
-    margin-right: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    color: white;
+    font-size: 50px;
+    border-style: solid;
+    border-color: white;
+    border-width: 8px;
+    padding: 20px;
 }
 
 .post {
@@ -39,63 +29,58 @@ body {
 }
 
 .post-button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     margin-right: 40px;
     float: right;
-}
-
-.button-text { 
-    font-family: bradley hand;
-    font-size: 20px;
+    font-family: sans-serif;
+    font-size: 18px;
 }
 
 .browser {
-    font-size: 25px;
-    font-family: bradley hand;
+    font-size: 20px;
+    font-family: sans-serif;
     color: rgb(14, 48, 67);
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 .search-button {
-    height: 40px;
+    height: 35px;
     width: 100px;
     margin-left: 10px;
-}
-
-.search-text {
-    font-family: bradley hand;
-    font-size: 20px;
-    height: 30px;
+    font-family: sans-serif;
+    font-size: 18px;
 }
 
 .text-input {
-    height: 30px;
+    height: 40px;
     width: 250px;
 }
 
 .homepage-city {
     width: 100vw;
-    /* border-style: solid;
-    border-color: white; */
-    border-width: 5px;
     margin-top: 5px;
     padding: 30px;
+    
 }
 
 .country {
-    border-style: solid;
-    /* border-color: rgb(117, 33, 150); */
-    border-color: rgb(51, 83, 119);
-    border-width: 5px;
     margin: 40px;
     text-align: center;
-    font-family: bradley hand;
-    font-size: 75px;
-    /* color: rgb(219, 221, 227); */
-    color: rgb(216, 127, 72);
-    text-shadow: 2px 2px 8px #000000;
+    font-family: sans-serif;
+    font-size: 50px;
+    color: white;
     padding: 40px;
-    width: 50%;
+    width: 40%;
     background-image: url("/assets/photo-background.jpeg");
 }
 
+.city-text {
+    top: 25%;
+    left: 25%;
+    padding: 20px;
+    text-decoration: underline;
+}

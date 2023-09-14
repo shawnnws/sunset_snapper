@@ -1,26 +1,14 @@
-<body>
-    <table class="header">
-        <tr>
-            <td class="brand">SunsetSnapper</td>
-        </tr>
-
-        <tr>
-            <td class="login-header">Login</td>
-        </tr>
-    </table>
+<div class="container">
+    <img src="/assets/sunset-banner.jpg" style="width:100%">
+    <div class="brand">S U N S E T S N A P P E R</div>
+</div>
 
     <form>
-        <!-- [formGroup]="loginForm" (ngSubmit)="onLogin()" -->
     <table class="login-body">
-        <tr class="message">
-            Please enter username to proceed!
-        </tr>
         
         <tr>
             <td class="login-text">
-                <label for="username">Username: </label>
-                <input id="username" type="text" [(ngModel)]="username" name="username" placeholder="Enter Username" required>
-                <!-- formControlName="username" -->
+                <input class="login-field" id="username" type="text" [(ngModel)]="username" name="username" placeholder="Enter Username" required>
             </td>
         </tr>
         <tr>
@@ -30,20 +18,6 @@
                 </div>
               </td>
         </tr>
-
-        <!-- <tr>
-            <td class="login-text">
-                <label for="password">Password: </label>
-                <input id="password" type="text" formControlName="password" placeholder="Enter Password" required>
-            </td>
-        </tr>
-        <tr>
-            <td class="error-cell">
-                <div *ngIf="invalidFormInput('password') && loginForm.controls['password'].touched" class="error-message">
-                  Password is required!
-                </div>
-              </td>
-        </tr> -->
 
         <tr class="button">
             <span class="login-button">
@@ -56,4 +30,3 @@
         </tr>
     </table>
     </form>
-</body>
