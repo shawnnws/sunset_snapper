@@ -1,38 +1,47 @@
 body {
-    /* background-color:rgb(206, 163, 140); */
-    /* background-color: rgb(14, 48, 67); */
     background-color: rgb(14, 48, 67);
     height: auto;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.home-button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-right: 40px;
+    float: right;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+.brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    color: white;
+    font-size: 50px;
+    border-style: solid;
+    border-color: white;
+    border-width: 8px;
+    padding: 20px;
 }
 
 .header {
     width: 100%;
 }
 
-.home-button {
-    font-family: bradley hand;
-    font-size: 20px;
-    float: right;
-    height: 35px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.brand {
-    background-color: rgb(14, 48, 67);
-    font-family: bradley hand;
-    color: rgb(239, 127, 62);
-    font-size: 80px;
-    text-align: center;
-    /* border-style: solid;
-    border-color: grey; */
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 .city-header {
-    font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
+    font-family: sans-serif;
+    text-decoration: underline;
     color: rgb(239, 134, 73);
     background-color: rgb(14, 48, 67);
     font-size: 75px;
@@ -44,7 +53,6 @@ body {
     text-align: center;
     font-size: 20px;
     font-family: bradley hand;
-    /* color: rgb(219, 221, 227); */
     color: rgb(239, 134, 73);
 }
 
